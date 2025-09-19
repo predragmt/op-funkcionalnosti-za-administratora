@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Artikli</title>
+</head>
+<body>
+    <h1>Artikli</h1>
+    <hr>
+    <div class="kontejner">
+        <table id="artikli">
+            <thead>
+                <tr>
+                    <th>Br</th>
+                    <th>Naziv</th>
+                    <th>Cena($)</th>
+                </tr>
+            </thead>
+            <tbody id="artikli-body"></tbody>
+        </table>
+        <form id="forma">
+            <label for="naziv">Naziv:</label>
+            <input id="naziv" name="naziv" type="text" required>
+            <label for="cena">Cena:</label>
+            <input id="cena" name="cena" type="number" required>
+            <label for="opis">Opis:</label>
+            <textarea id="opis" name="opis" required></textarea>
+        </form>
+        <button type="button" id="dodaj">Dodaj</button>
+        <div class="artikliDetalji">
+            <p>Naziv:</p>
+            <p>Cena:</p>
+            <p>Opis:</p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
