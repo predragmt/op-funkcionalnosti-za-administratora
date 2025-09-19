@@ -59,15 +59,17 @@ function obradaSlanjaForme(artikli) {
 
         const noviArtikal = new Artikal(naziv, cena, opis)
         artikli.push(noviArtikal)
+
+        let niz = JSON.stringify(artikli)
+        localStorage.setItem("artikli", niz)
+
         kreirajRedoveZaArtikle(artikli)
     }) 
 }
 
-function inicijalizujArtikle() {
-    let artikli = [
-        new Artikal('Monitor', 165),
-        new Artikal('TV', 650)
-    ]
+function inicijalizujArtikle(artikli) {
+    let nizArtikala = localStorage.getItem("artikli")
+    artikli = JSON.parse(nizArtikala)
     
     kreirajRedoveZaArtikle(artikli)
     obradaSlanjaForme(artikli)
