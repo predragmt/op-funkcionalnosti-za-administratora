@@ -68,7 +68,7 @@ function obradaSlanjaForme(artikli) {
 }
 
 function inicijalizujArtikle(artikli) {
-    let nizArtikala = localStorage.getItem("artikli")
+    let nizArtikala = localStorage.getItem("artikli") || "[]"
     artikli = JSON.parse(nizArtikala)
     
     kreirajRedoveZaArtikle(artikli)
