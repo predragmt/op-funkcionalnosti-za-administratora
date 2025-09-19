@@ -10,6 +10,7 @@ class Artikal {
 
 function kreirajRedoveZaArtikle(artikli) {
     let tabela = document.querySelector("#artikli-body")
+    tabela.innerHTML = ""
 
     for (let i = 0; i < artikli.length; i++) {
         let tr = document.createElement("tr")
@@ -40,6 +41,28 @@ function prikaziDetaljeArtikla(artikal) {
     document.querySelector("#detaljiOpis").textContent = "Opis: " + artikal.opis
 }
 
+function obradaSlanjaForme(artikli) {
+    let dodaj = document.querySelector('#dodaj')
+    dodaj.addEventListener('click', function () { 
+        const forma = document.querySelector('#forma')
+        const formData = new FormData(forma) 
+
+        const naziv = formData.get('naziv')
+        const cena = formData.get('cena')
+        const opis = formData.get('opis')
+
+        for (let i = 0; i < artikli.length; i++) {
+            if (naziv === artikli[i].naziv) {
+                return
+            }
+        }
+
+        const noviArtikal = new Artikal(naziv, cena, opis)
+        artikli.push(noviArtikal)
+        kreirajRedoveZaArtikle(artikli)
+    }) 
+}
+
 function inicijalizujArtikle() {
     let artikli = [
         new Artikal('Monitor', 165),
@@ -47,6 +70,7 @@ function inicijalizujArtikle() {
     ]
     
     kreirajRedoveZaArtikle(artikli)
+    obradaSlanjaForme(artikli)
 }
 
 document.addEventListener('DOMContentLoaded', inicijalizujArtikle)
