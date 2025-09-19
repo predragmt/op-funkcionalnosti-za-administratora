@@ -25,8 +25,19 @@ function kreirajRedoveZaArtikle(artikli) {
         tr.appendChild(br)
         tr.appendChild(naziv)
         tr.appendChild(cena)
+
+        tr.addEventListener('click', function () {
+            prikaziDetaljeArtikla(artikli[i])
+        })
+
         tabela.appendChild(tr)
     }
+}
+
+function prikaziDetaljeArtikla(artikal) {
+    document.querySelector("#detaljiNaziv").textContent = "Naziv: " + artikal.naziv
+    document.querySelector("#detaljiCena").textContent = "Cena: " + artikal.cena + "$"
+    document.querySelector("#detaljiOpis").textContent = "Opis: " + artikal.opis
 }
 
 function inicijalizujArtikle() {
